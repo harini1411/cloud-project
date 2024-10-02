@@ -39,4 +39,123 @@ AWS IAM: Manages permissions and roles for secure access between AWS services.
 Architecture Diagram
 
 ![architecure diagram](https://github.com/user-attachments/assets/b8f0f3d7-db72-4f5b-9739-c6132a66e1b3)
+
+
+Here's the revised setup instructions based on using the **AWS Management Console** for deploying your **Cloud-Based BMI Calculator with API Integration and Scalable Data Management on AWS**.
+
+---
+
+Procedure
+   ```
+
+### **1. Set Up AWS Lambda Function**
+1. **Login to AWS Management Console** and navigate to the **Lambda** service.
+
+2. Click on **Create function**.
+
+   - Choose **Author from scratch**.
+
+   - Name the function (e.g., `BMI_Calculator_Function`).
+
+   - Choose **Python** as the runtime.
+
+   - Set **Execution Role** to create a new role with basic Lambda permissions.
+
+3. Once the function is created, in the function editor, upload the provided `bmi_calculator.py` code file by:
+
+   - Clicking on the **Code** tab.
+
+   - Deleting the default code and pasting your BMI calculation logic or uploading the `.zip` file containing the script.
+
+4. Set the **timeout** to a reasonable limit (e.g., 10 seconds).
+
+5. Click **Deploy** to save the function.
+
+2. Set Up API Gateway
+
+1. In the AWS Management Console, navigate to **API Gateway** and click on Create API\
+
+   - Select **REST API**.
+
+   - Choose **New API** and give it a name (e.g., `BMI_API`).
+
+2. Click **Create Resource** and define an endpoint (e.g., `/calculate-bmi`).
+
+3. Under the `/calculate-bmi` resource, create a **Method**:
+
+   - Choose `POST` and click the checkmark.
+
+   - Set the integration type to **Lambda Function**.
+
+   - Select the Lambda function created earlier (`BMI_Calculator_Function`).
+
+4. After saving, click **Actions** > **Deploy API**.
+
+   - Select a deployment stage (e.g., `prod`).
+
+5. Once deployed, copy the **Invoke URL**—this is the endpoint you’ll use to test the API.
+
+
+### **3. Create DynamoDB Table
+
+1. Go to the **DynamoDB** service in the AWS Console.
+
+2. Click on **Create table**.
+
+   - Name the table (e.g., `BMI_Calculations`).
+
+   - Set a Primary Key (e.g., `UserID` as a string).
+
+3. Define additional attributes such as `height`, `weight`, and `bmi`.
+
+4. Leave other options at default and click Create Table.
+
+4. Connect Lambda to DynamoDB
+
+1. Go back to your Lambda function in the AWS Console.
+
+2. Under the Permissions tab, click the role name to open the **IAM Console**.
+
+3. Add a DynamoDB Full Access policy to the Lambda role so that the function can read/write to the DynamoDB table.
+
+4. Modify your Lambda function to use the boto3 library to write data to DynamoDB after calculating the BMI. Ensure the table name is referenced correctly.
+
+5. Testing the API
+
+1. Use a tool like Postman or curl to send a `POST` request to your API Gateway's Invoke URL.
+
+   - Example request:
+
+     ```http
+     POST {API-Invoke-URL}/calculate-bmi
+     Content-Type: application/json
+
+     {
+       "height": 170,
+       "weight": 65
+     }
+
+     ```
+2. The API will trigger your Lambda function, calculate the BMI, and store the results in DynamoDB. You should receive a response containing the calculated BMI.
+
+6. Deploy Front-End with Amplify (Optional)
+
+1. Navigate to AWS Amplify in the Console.
+
+2. Click **Get Started** under Deploy.
+
+3. Connect your GitHub repository and choose the branch to deploy.
+
+4. Amplify will automatically build and deploy the front-end application to a hosted URL.
+
+7. Monitor and Maintain
+
+1. You can monitor the execution of Lambda via **AWS CloudWatch** to view logs, trace requests, and performance metrics.
+
+2. Use **API Gateway Logs** to view traffic and performance insights for your REST API.
+
+3. Regularly check the **DynamoDB Table** for the calculated BMI entries.
+
+
+
  
