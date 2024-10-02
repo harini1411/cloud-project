@@ -35,7 +35,7 @@ Procedure
 1. Set Up AWS Lambda Function  
      * Click on "Create function".
        
-     * Name the function (e.g., `BMI_Calculator_Function`).
+     * Name the function (e.g., BMI_Calculator_Function).
       
      * Choose Python as the runtime.
        
