@@ -45,72 +45,70 @@ Procedure
 
 
 1. Set Up AWS Lambda Function  
-   - Login to AWS Management Console and navigate to the Lambda service.
-   - 
-   - Click on "Create function."
-   
+     - Click on "Create function".
+       
      - Name the function (e.g., `BMI_Calculator_Function`).
-     - 
+      
      - Choose Python as the runtime.
-     - 
+       
      - Set Execution Role to create a new role with basic Lambda permissions.
-     - 
+       
    - Once the function is created, in the function editor, upload the provided `bmi_calculator.py` code file by:
-   - 
+     
      - Clicking on the Code tab.
-     - 
+       
      - Deleting the default code and pasting your BMI calculation logic or uploading the `.zip` file containing the script.
-     - 
+       
    - Set the timeout to a reasonable limit (e.g., 10 seconds).
-   - 
+     
    - Click Deploy to save the function.
 
-2. Set Up API Gateway
+1. Set Up API Gateway
     
    - In the AWS Management Console, navigate to API Gateway and click on "Create API."
      
      - Select "REST API."
-     - 
+      
      - Choose "New API" and give it a name (e.g., `BMI_API`).
-     - 
+       
    - Click "Create Resource" and define an endpoint (e.g., `/calculate-bmi`).
-   - 
+    
    - Under the `/calculate-bmi` resource, create a Method:
-   - 
+     
      - Choose `POST` and click the checkmark.
-     - 
+       
      - Set the integration type to "Lambda Function."
-     - 
+       
      - Select the Lambda function created earlier (`BMI_Calculator_Function`).
-     - 
+       
    - After saving, click "Actions" > "Deploy API."
-   - 
+     
      - Select a deployment stage (e.g., `prod`).
-     - 
+       
    - Once deployed, copy the Invoke URL—this is the endpoint you’ll use to test the API.
 
 4. Create DynamoDB Table
 
    - Go to the DynamoDB service in the AWS Console.
-   - 
+     
    - Click on "Create table."
-   - 
+     
      - Name the table (e.g., `BMI_Calculations`).
-     - 
+       
      - Set a Primary Key (e.g., `UserID` as a string).
-     - 
+       
    - Define additional attributes such as `height`, `weight`, and `bmi`.
-   - 
+     
    - Leave other options at default and click "Create Table."
 
 6. Connect Lambda to DynamoDB
-7. 
+   
    - Go back to your Lambda function in the AWS Console.
-   - 
+     
    - Under the "Permissions" tab, click the role name to open the IAM Console.
-   - 
+     
    - Add a DynamoDB Full Access policy to the Lambda role so that the function can read/write to the DynamoDB table.
-   - 
+     
    - Modify your Lambda function to use the `boto3` library to write data to DynamoDB after calculating the BMI. Ensure the table name is referenced correctly.
 
 8. Testing the API
@@ -119,7 +117,7 @@ Procedure
    
      Example request:  
      ```http
-     POST {API-Invoke-URL}/calculate-bmi  
+     POST API-Invoke-URL/calculate-bmi  
      Content-Type: application/json  
 
      {  
