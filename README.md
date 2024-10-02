@@ -8,5 +8,6 @@ BMI Calculation: Computes the Body Mass Index (BMI) using user-provided height a
 Data Storage: Stores BMI results in DynamoDB for retrieval and further analysis.
 AWS Integration: Leverages AWS services such as Lambda, API Gateway, DynamoDB, and Amplify.
 Serverless Architecture: Uses a serverless model to eliminate the need for backend servers, offering scalability and cost-effectiveness.
+
 ![architecure diagram](https://github.com/user-attachments/assets/b8f0f3d7-db72-4f5b-9739-c6132a66e1b3)
  
