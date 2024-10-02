@@ -24,6 +24,15 @@ The system delivers real-time responses to user inputs, instantly computing and 
 12. Scalable and Managed Infrastructure
 By utilizing AWS-managed services like Lambda, API Gateway, and DynamoDB, this project is designed to scale automatically based on demand while reducing operational overhead.
 
+Architecture
+Components:
+AWS Amplify: Hosts the front-end interface where users provide height and weight.
+AWS API Gateway: Exposes a RESTful API to receive user inputs and route them to Lambda.
+AWS Lambda: Executes the BMI calculation logic.
+Amazon DynamoDB: Stores the user inputs and BMI calculation results for future retrieval.
+AWS IAM: Manages permissions and roles for secure access between AWS services.
+Architecture Diagram
+
 
 ![architecure diagram](https://github.com/user-attachments/assets/b8f0f3d7-db72-4f5b-9739-c6132a66e1b3)
  
