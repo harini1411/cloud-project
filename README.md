@@ -128,3 +128,9 @@ Procedure
    - The API will trigger your Lambda function, calculate the BMI, and store the results in DynamoDB. You should receive a response containing the calculated BMI.
 
 
+   Output
+
+   ![Screenshot (166)](https://github.com/user-attachments/assets/00eb6506-2ff7-43d6-828b-acfee1681691)
+
+
+
