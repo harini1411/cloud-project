@@ -1,5 +1,6 @@
                    Cloud-Based BMI Calculator with API Integration and Scalable Data Management on AWS
-                   Project Description
+                   
+                    Project Description
 This project is an AWS-based BMI (Body Mass Index) calculator. The system takes user inputs for height and weight, calculates the BMI, and stores the result in DynamoDB for future reference. The application uses AWS Lambda for computations, API Gateway for handling HTTP requests, and DynamoDB for data storage. The front-end is deployed and hosted using AWS Amplify.
 
                     Features
