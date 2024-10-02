@@ -33,31 +33,31 @@ Procedure
 
 
 1. Set Up AWS Lambda Function  
-     - Click on "Create function".
+     * Click on "Create function".
        
-     - Name the function (e.g., `BMI_Calculator_Function`).
+     * Name the function (e.g., `BMI_Calculator_Function`).
       
-     - Choose Python as the runtime.
+     * Choose Python as the runtime.
        
-     - Set Execution Role to create a new role with basic Lambda permissions.
+     * Set Execution Role to create a new role with basic Lambda permissions.
        
-   - Once the function is created, in the function editor, upload the provided `bmi_calculator.py` code file by:
+     * Once the function is created, in the function editor, upload the provided `bmi_calculator.py` code file by:
      
-     - Clicking on the Code tab.
+     * Clicking on the Code tab.
        
-     - Deleting the default code and pasting your BMI calculation logic or uploading the `.zip` file containing the script.
+     * Deleting the default code and pasting your BMI calculation logic or uploading the `.zip` file containing the script.
        
-   - Set the timeout to a reasonable limit (e.g., 10 seconds).
+     * Set the timeout to a reasonable limit (e.g., 10 seconds).
      
-   - Click Deploy to save the function.
+     * Click Deploy to save the function.
 
-1. Set Up API Gateway
+2. Set Up API Gateway
     
-   - In the AWS Management Console, navigate to API Gateway and click on "Create API."
+   *  In the AWS Management Console, navigate to API Gateway and click on "Create API."
      
-     - Select "REST API."
+   * Select "REST API."
       
-     - Choose "New API" and give it a name (e.g., `BMI_API`).
+   * Choose "New API" and give it a name (e.g., `BMI_API`).
        
    - Click "Create Resource" and define an endpoint (e.g., `/calculate-bmi`).
     
