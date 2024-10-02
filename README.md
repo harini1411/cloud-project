@@ -1,2 +1,3 @@
-[WhatsApp Image 2024-10-02 at 22 47 55_3c21f87d](https://github.com/user-attachments/assets/e12265ae-a9a0-465e-a057-e9f71c310877)
+![architecure diagram](https://github.com/user-attachments/assets/b8f0f3d7-db72-4f5b-9739-c6132a66e1b3)
+
 
